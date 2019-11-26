@@ -1,0 +1,13 @@
+.header {
+  background-color: lightgray;
+}
+
+.header__inner {
+  padding: 20px 0;
+}
+
+.header__title {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}

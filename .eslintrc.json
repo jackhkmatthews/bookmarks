@@ -1,0 +1,11 @@
+{
+  "extends": ["eslint:recommended", "google", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  },
+  "env": { "es2017": true, "browser": true, "node": true },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}
