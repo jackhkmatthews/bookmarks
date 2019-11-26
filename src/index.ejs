@@ -14,6 +14,49 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main>
+      <section class="section section--create">
+        <div class="main-layout">
+          <div class="create">
+            <form class="create-form" id="createForm">
+              <div class="create-form__group">
+                <label class="create-form__label" for="bookmarkURL"
+                  >Bookmark link</label
+                >
+                <input
+                  required
+                  name="bookmarkURL"
+                  class="create-form__input"
+                  id="bookmarkURL"
+                  type="url"
+                  placeholder="http://www.example.com"
+                />
+              </div>
+              <div class="create-form__group">
+                <label class="create-form__label" for="bookmarkName"
+                  >Bookmark name</label
+                >
+                <input
+                  required
+                  name="bookmarkName"
+                  class="create-form__input"
+                  id="bookmarkName"
+                  type="text"
+                  placeholder="example"
+                />
+              </div>
+              <button type="submit" id="createFormSubmit">Create</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="section section--overview">
+        <div class="main-layout">
+          <div class="overview">
+            <ul class="bookmark-list" id="bookmarkList"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
