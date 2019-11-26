@@ -1,27 +1,23 @@
-import "./styles/main-layout.css";
-import "./styles/header.css";
 import "normalize.css";
-// import { fetchTest } from "./fetchTest";
+import "./styles/_variables.css";
+import "./styles/create.css";
+import "./styles/header.css";
+import "./styles/main-layout.css";
+import "./styles/overview.css";
+import "./styles/shared.css";
 
-// /**
-//  * Multiple lines of JSDoc text are written here,
-//  * wrapped normally.
-//  * @param {number} arg A number to do something to.
-//  * @return {Element} arg A number to do something to.
-//  */
-// function component() {
-//   const element = document.createElement("div");
-//   const btn = document.createElement("button");
+import { setUpForm } from "./js/create-form";
+import { initialiseLocalStorage, getLocalStorage } from "./js/local-storage";
+import { initialiseBookmarkList } from "./js/bookmark-list";
 
-//   element.innerHTML = "Hello webpack";
-//   element.classList.add("hello");
+/**
+ * initialise app with form submit listener,
+ * local storage and DOM rendering of bookmarks
+ */
+function init() {
+  setUpForm();
+  initialiseLocalStorage();
+  initialiseBookmarkList(getLocalStorage());
+}
 
-//   btn.innerHTML = "Click me and check the console!";
-//   element.appendChild(btn);
-
-//   return element;
-// }
-
-// fetchTest();
-
-// document.body.appendChild(component());
+init();
