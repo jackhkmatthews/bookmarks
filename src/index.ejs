@@ -53,7 +53,23 @@
       <section class="section section--overview">
         <div class="main-layout">
           <div class="overview">
-            <ul class="bookmark-list" id="bookmarkList"></ul>
+            <ul class="bookmark-list" id="bookmarkList">
+              <template id="bookmarkTemplate">
+                <li class="bookmark">
+                  <div class="bookmark__manage">
+                    <a class="bookmark__link" target="_blank"></a>
+                    <div class="bookmark__ctas">
+                      <button class="bookmark__edit">
+                        Edit
+                      </button>
+                      <button class="bookmark__delete">
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </template>
+            </ul>
           </div>
         </div>
       </section>

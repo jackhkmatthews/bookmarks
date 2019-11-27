@@ -1,6 +1,8 @@
 import "normalize.css";
 import "./styles/_variables.css";
 import "./styles/create.css";
+import "./styles/bookmark.css";
+import "./styles/bookmark-list.css";
 import "./styles/header.css";
 import "./styles/main-layout.css";
 import "./styles/overview.css";

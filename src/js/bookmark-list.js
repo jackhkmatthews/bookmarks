@@ -1,3 +1,5 @@
+import { getBookmark } from "./bookmark";
+
 /**
  * initial population of DOM bookmark list with
  * bookmarks from local storage
@@ -6,7 +8,7 @@
 export function initialiseBookmarkList(bookmarks) {
   const bookmarkList = document.getElementById("bookmarkList");
   bookmarks.forEach(bookmark => {
-    const bookmarkListItem = getBookmarkListItem(bookmark);
+    const bookmarkListItem = getBookmark(bookmark);
     bookmarkList.append(bookmarkListItem);
   });
 }
@@ -18,22 +20,6 @@ export function initialiseBookmarkList(bookmarks) {
  */
 export function addToBookmarkList(newBookmark) {
   const bookmarkList = document.getElementById("bookmarkList");
-  const bookmarkListItem = getBookmarkListItem(newBookmark);
+  const bookmarkListItem = getBookmark(newBookmark);
   bookmarkList.prepend(bookmarkListItem);
-}
-
-/**
- * Create and return a bookmark list item
- * (li and a)
- * @param {bookmark} bookmark
- * @return {HTMLElement} bookmarkElement
- */
-export function getBookmarkListItem(bookmark) {
-  const bookmarkListItem = document.createElement("li");
-  const bookmarkLink = document.createElement("a");
-  bookmarkLink.href = bookmark.bookmarkURL;
-  bookmarkLink.innerHTML = bookmark.bookmarkName;
-  bookmarkLink.target = "_blank";
-  bookmarkListItem.appendChild(bookmarkLink);
-  return bookmarkListItem;
 }

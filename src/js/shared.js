@@ -11,3 +11,16 @@ export function addToBookmarks(newBookmark) {
   updateLocalStorage(newBookmarks);
   addToBookmarkList(newBookmark);
 }
+
+/**
+ * Remove bookmark element from DOM
+ * and from local storage
+ * @param {HTMLElement} bookmarkElement
+ * @param {number} id
+ */
+export function removeFromBookmarks(bookmarkElement, id) {
+  bookmarkElement.remove();
+  const bookmarks = getLocalStorage();
+  const newBookmarks = bookmarks.filter(bookmark => bookmark.id !== id);
+  updateLocalStorage(newBookmarks);
+}

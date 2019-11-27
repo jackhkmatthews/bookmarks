@@ -16,6 +16,7 @@ export function setUpForm() {
       newBookmark[result.value[0]] = result.value[1];
       result = entries.next();
     }
+    newBookmark.id = Date.now();
     addToBookmarks(newBookmark);
   });
 }

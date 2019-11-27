@@ -1,0 +1,12 @@
+.bookmark {
+  display: block;
+}
+
+.bookmark__manage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookmark__link {
+  display: inline-block;
+}
