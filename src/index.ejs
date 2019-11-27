@@ -19,21 +19,25 @@
         <div class="main-layout">
           <div class="create">
             <form class="create-form" id="createForm">
-              <div class="create-form__group">
-                <label class="create-form__label" for="bookmarkURL"
+              <div class="create-form__group create-form__group--url">
+                <label
+                  class="create-form__label create-form__label--url"
+                  for="bookmarkURL"
                   >Bookmark link</label
                 >
                 <input
                   required
                   name="bookmarkURL"
-                  class="create-form__input"
+                  class="create-form__input create-form__input--url"
                   id="bookmarkURL"
                   type="url"
                   placeholder="http://www.example.com"
                 />
               </div>
-              <div class="create-form__group">
-                <label class="create-form__label" for="bookmarkName"
+              <div class="create-form__group create-form__group--name">
+                <label
+                  class="create-form__label create-form__label--name"
+                  for="bookmarkName"
                   >Bookmark name</label
                 >
                 <input
@@ -68,7 +72,7 @@
                     </div>
                   </div>
                   <form class="edit-form">
-                    <div class="edit-form__group">
+                    <div class="edit-form__group edit-form__group--url">
                       <label class="edit-form__label">Bookmark link</label>
                       <input
                         required
@@ -77,7 +81,7 @@
                         type="url"
                       />
                     </div>
-                    <div class="edit-form__group">
+                    <div class="edit-form__group edit-form__group--name">
                       <label class="edit-form__label">Bookmark name</label>
                       <input
                         required

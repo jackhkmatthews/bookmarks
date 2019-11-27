@@ -17,10 +17,10 @@ export function getBookmarkListItem(bookmark) {
   const bookmarkListItem = document
     .importNode(template.content, true)
     .children.item(0);
+  const bookmarkManage = bookmarkListItem.querySelector(".bookmark__manage");
   const bookmarkLink = bookmarkListItem.querySelector(".bookmark__link");
   const bookmarkEdit = bookmarkListItem.querySelector(".bookmark__edit");
   const bookmarkDelete = bookmarkListItem.querySelector(".bookmark__delete");
-  const bookmarkCtas = bookmarkListItem.querySelector(".bookmark__ctas");
   const editForm = bookmarkListItem.querySelector(".edit-form");
   const urlInput = bookmarkListItem.querySelector(".edit-form__input--url");
   const nameInput = bookmarkListItem.querySelector(".edit-form__input--name");
@@ -38,7 +38,8 @@ export function getBookmarkListItem(bookmark) {
     urlInput.value = bookmark.bookmarkURL;
     nameInput.value = bookmark.bookmarkName;
     editForm.classList.add("show");
-    bookmarkCtas.classList.add("hide");
+    bookmarkManage.classList.add("hide");
+    bookmarkManage.classList.add("hide");
   });
 
   // on bookmarkDelete click remove bookmark from
@@ -56,7 +57,7 @@ export function getBookmarkListItem(bookmark) {
     const updatedBookmark = { ...bookmark, ...getBookmarkFromForm(e.target) };
     updateBookmark(bookmarkListItem, updatedBookmark);
     editForm.classList.remove("show");
-    bookmarkCtas.classList.remove("hide");
+    bookmarkManage.classList.remove("hide");
   });
 
   // on editFormCancel click hide edit form
@@ -64,7 +65,7 @@ export function getBookmarkListItem(bookmark) {
   editFormCancel.addEventListener("click", e => {
     e.preventDefault();
     editForm.classList.remove("show");
-    bookmarkCtas.classList.remove("hide");
+    bookmarkManage.classList.remove("hide");
   });
 
   return bookmarkListItem;

@@ -7,6 +7,18 @@
   justify-content: space-between;
 }
 
+.bookmark__manage.hide {
+  display: none;
+}
+
 .bookmark__link {
   display: inline-block;
+}
+
+.bookmark__ctas {
+  display: flex;
+}
+
+.bookmark__ctas.hide {
+  display: none;
 }

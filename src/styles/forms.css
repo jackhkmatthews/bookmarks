@@ -1,11 +1,47 @@
+.create-form__label {
+  display: none;
+}
+
+.create-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-form__group--url {
+  flex-grow: 1;
+}
+
+.create-form__group--name {
+  flex-basis: 30%;
+}
+
+.create-form__input {
+  display: inline-block;
+  width: 100%;
+}
+
 .edit-form {
   display: none;
 }
 
 .edit-form.show {
-  display: block;
+  display: flex;
 }
 
-.bookmark__ctas.hide {
+.edit-form__group--url {
+  flex-grow: 1;
+}
+
+.edit-form__group--name {
+  flex-basis: 30%;
+}
+
+.edit-form__label {
   display: none;
+}
+
+.edit-form__input {
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
 }
