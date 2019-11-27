@@ -20,6 +20,7 @@ export function getBookmarkListItem(bookmark) {
   const bookmarkLink = bookmarkListItem.querySelector(".bookmark__link");
   const bookmarkEdit = bookmarkListItem.querySelector(".bookmark__edit");
   const bookmarkDelete = bookmarkListItem.querySelector(".bookmark__delete");
+  const bookmarkCtas = bookmarkListItem.querySelector(".bookmark__ctas");
   const editForm = bookmarkListItem.querySelector(".edit-form");
   const urlInput = bookmarkListItem.querySelector(".edit-form__input--url");
   const nameInput = bookmarkListItem.querySelector(".edit-form__input--name");
@@ -30,13 +31,14 @@ export function getBookmarkListItem(bookmark) {
   bookmarkLink.href = bookmark.bookmarkURL;
   bookmarkLink.textContent = bookmark.bookmarkName;
 
-  // on bookmarkEdit click update edit form input values
-  // and show edit form
+  // on bookmarkEdit click update edit form input values,
+  // hide edit and delete and show edit form
   bookmarkEdit.addEventListener("click", e => {
     e.preventDefault();
     urlInput.value = bookmark.bookmarkURL;
     nameInput.value = bookmark.bookmarkName;
     editForm.classList.add("show");
+    bookmarkCtas.classList.add("hide");
   });
 
   // on bookmarkDelete click remove bookmark from
@@ -47,19 +49,22 @@ export function getBookmarkListItem(bookmark) {
   });
 
   // on editForm submit get updated bookmark
-  // values from form, update bookmark in DOM
-  // and LS and hide edit form
+  // values from form, update bookmark in DOM,
+  // show edit and delete and LS and hide edit form
   editForm.addEventListener("submit", e => {
     e.preventDefault();
     const updatedBookmark = { ...bookmark, ...getBookmarkFromForm(e.target) };
     updateBookmark(bookmarkListItem, updatedBookmark);
     editForm.classList.remove("show");
+    bookmarkCtas.classList.remove("hide");
   });
 
   // on editFormCancel click hide edit form
+  // and show edit and delete
   editFormCancel.addEventListener("click", e => {
     e.preventDefault();
     editForm.classList.remove("show");
+    bookmarkCtas.classList.remove("hide");
   });
 
   return bookmarkListItem;

@@ -5,3 +5,7 @@
 .edit-form.show {
   display: block;
 }
+
+.bookmark__ctas.hide {
+  display: none;
+}

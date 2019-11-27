@@ -1,7 +1,7 @@
 import "normalize.css";
 import "./styles/_variables.css";
 import "./styles/create.css";
-import "./styles/edit-form.css";
+import "./styles/forms.css";
 import "./styles/bookmark.css";
 import "./styles/bookmark-list.css";
 import "./styles/header.css";
