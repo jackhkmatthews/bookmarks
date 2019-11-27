@@ -1,4 +1,4 @@
-import { getBookmark } from "./bookmark";
+import { getBookmarkListItem } from "./bookmark";
 
 /**
  * initial population of DOM bookmark list with
@@ -8,7 +8,7 @@ import { getBookmark } from "./bookmark";
 export function initialiseBookmarkList(bookmarks) {
   const bookmarkList = document.getElementById("bookmarkList");
   bookmarks.forEach(bookmark => {
-    const bookmarkListItem = getBookmark(bookmark);
+    const bookmarkListItem = getBookmarkListItem(bookmark);
     bookmarkList.append(bookmarkListItem);
   });
 }
@@ -20,6 +20,6 @@ export function initialiseBookmarkList(bookmarks) {
  */
 export function addToBookmarkList(newBookmark) {
   const bookmarkList = document.getElementById("bookmarkList");
-  const bookmarkListItem = getBookmark(newBookmark);
+  const bookmarkListItem = getBookmarkListItem(newBookmark);
   bookmarkList.prepend(bookmarkListItem);
 }

@@ -1,4 +1,5 @@
-import { removeFromBookmarks } from "./shared";
+import { removeFromBookmarks, updateBookmark } from "./shared";
+import { getBookmarkFromForm } from "./forms";
 
 /**
  * Create and return a bookmark list item
@@ -8,23 +9,58 @@ import { removeFromBookmarks } from "./shared";
  * @param {bookmark} bookmark
  * @return {HTMLElement} bookmarkElement
  */
-export function getBookmark(bookmark) {
+export function getBookmarkListItem(bookmark) {
+  // get HTML template to save on having to compose HTML in JS
   const template = document.getElementById("bookmarkTemplate");
+
+  // get references to all required HTML elements
   const bookmarkListItem = document
     .importNode(template.content, true)
     .children.item(0);
   const bookmarkLink = bookmarkListItem.querySelector(".bookmark__link");
   const bookmarkEdit = bookmarkListItem.querySelector(".bookmark__edit");
   const bookmarkDelete = bookmarkListItem.querySelector(".bookmark__delete");
+  const editForm = bookmarkListItem.querySelector(".edit-form");
+  const urlInput = bookmarkListItem.querySelector(".edit-form__input--url");
+  const nameInput = bookmarkListItem.querySelector(".edit-form__input--name");
+  const editFormCancel = bookmarkListItem.querySelector(".edit-form__cancel");
+
+  // set data-id, href and text content values from bookmark
   bookmarkListItem.setAttribute("data-id", bookmark.id);
   bookmarkLink.href = bookmark.bookmarkURL;
   bookmarkLink.textContent = bookmark.bookmarkName;
+
+  // on bookmarkEdit click update edit form input values
+  // and show edit form
   bookmarkEdit.addEventListener("click", e => {
-    console.log("edit");
+    e.preventDefault();
+    urlInput.value = bookmark.bookmarkURL;
+    nameInput.value = bookmark.bookmarkName;
+    editForm.classList.add("show");
   });
+
+  // on bookmarkDelete click remove bookmark from
+  // bookmarks in LS and in DOM
   bookmarkDelete.addEventListener("click", e => {
     e.preventDefault();
     removeFromBookmarks(bookmarkListItem, bookmark.id);
   });
+
+  // on editForm submit get updated bookmark
+  // values from form, update bookmark in DOM
+  // and LS and hide edit form
+  editForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const updatedBookmark = { ...bookmark, ...getBookmarkFromForm(e.target) };
+    updateBookmark(bookmarkListItem, updatedBookmark);
+    editForm.classList.remove("show");
+  });
+
+  // on editFormCancel click hide edit form
+  editFormCancel.addEventListener("click", e => {
+    e.preventDefault();
+    editForm.classList.remove("show");
+  });
+
   return bookmarkListItem;
 }
