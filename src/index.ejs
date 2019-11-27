@@ -67,6 +67,32 @@
                       </button>
                     </div>
                   </div>
+                  <form class="edit-form">
+                    <div class="edit-form__group">
+                      <label class="edit-form__label">Bookmark link</label>
+                      <input
+                        required
+                        name="bookmarkURL"
+                        class="edit-form__input edit-form__input--url"
+                        type="url"
+                      />
+                    </div>
+                    <div class="edit-form__group">
+                      <label class="edit-form__label">Bookmark name</label>
+                      <input
+                        required
+                        name="bookmarkName"
+                        class="edit-form__input edit-form__input--name"
+                        type="text"
+                      />
+                    </div>
+                    <button type="submit" class="edit-form__update">
+                      Update
+                    </button>
+                    <button class="edit-form__cancel">
+                      Cancel
+                    </button>
+                  </form>
                 </li>
               </template>
             </ul>
