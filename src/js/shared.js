@@ -24,3 +24,23 @@ export function removeFromBookmarks(bookmarkElement, id) {
   const newBookmarks = bookmarks.filter(bookmark => bookmark.id !== id);
   updateLocalStorage(newBookmarks);
 }
+
+/**
+ * Update bookmark element in DOM and in local
+ * storage
+ * @param {HTMLElement} bookmarkListItem
+ * @param {bookmark} updatedBookmark
+ */
+export function updateBookmark(bookmarkListItem, updatedBookmark) {
+  const bookmarkLink = bookmarkListItem.querySelector(".bookmark__link");
+  bookmarkLink.href = updatedBookmark.bookmarkURL;
+  bookmarkLink.textContent = updatedBookmark.bookmarkName;
+  const bookmarks = getLocalStorage();
+  const newBookmarks = bookmarks.map(bookmark => {
+    if (bookmark.id === updatedBookmark.id) {
+      return { ...bookmark, ...updatedBookmark };
+    }
+    return bookmark;
+  });
+  updateLocalStorage(newBookmarks);
+}
