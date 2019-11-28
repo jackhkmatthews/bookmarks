@@ -26,17 +26,20 @@ export function getBookmarkListItem(bookmark) {
   const nameInput = bookmarkListItem.querySelector(".edit-form__input--name");
   const editFormCancel = bookmarkListItem.querySelector(".edit-form__cancel");
 
-  // set data-id, href and text content values from bookmark
+  // set data-id, href, form and text
+  // content values from bookmark
   bookmarkListItem.setAttribute("data-id", bookmark.id);
   bookmarkLink.href = bookmark.bookmarkURL;
   bookmarkLink.textContent = bookmark.bookmarkName;
 
-  // on bookmarkEdit click update edit form input values,
+  // on bookmarkEdit click update form values,
   // hide edit and delete and show edit form
   bookmarkEdit.addEventListener("click", e => {
     e.preventDefault();
-    urlInput.value = bookmark.bookmarkURL;
-    nameInput.value = bookmark.bookmarkName;
+    console.log(urlInput, bookmarkLink);
+
+    urlInput.value = bookmarkLink.href;
+    nameInput.value = bookmarkLink.textContent;
     editForm.classList.add("show");
     bookmarkManage.classList.add("hide");
     bookmarkManage.classList.add("hide");
